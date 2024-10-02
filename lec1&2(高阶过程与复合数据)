@@ -1,0 +1,24 @@
+(define (f x)(cond ((< x 1) 0)((= x 1)1)((= x 2)1)((> x 2)(+ (f (- x 1)) (f (- x 2))))))
+//斐波那契数列
+
+(define (sum_to a b)(cond
+((> a b)0)
+((= a b)b)
+((< a b)(+ a (sum_to (+ a 1) b)))
+))
+//求和
+
+(define (next a) (+ 1 a))
+(define (sum term a next b)(cond
+((> a b)0)
+(else (term a (sum term (next a) next b)))
+))
+//使用过程作为参数的封装
+(define (abs a) (cond((> a 0)a)((< a 0)(- 0 a))((= a 0)0)))
+(define (good x y)(cond((< (abs (- (* x x) y)) 0.1)1)((> (abs (- (* x x) y)) 0.1) 0)))
+(define (next x y)(/ (+ x (/ y x)) 2))
+
+(define (sqrt com x y next)(
+cond((= 1 (com x y))x)
+((= 0 (com x y))(next (sqrt com (next x y) y next) y))
+))
