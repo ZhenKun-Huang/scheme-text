@@ -1,0 +1,9 @@
+;list
+(cons 1 (cons 2 (cons 3 (cons 4 nil))))
+(define a (list 1 2 3 4 5))
+(define (list_mul s l)
+(if(null? l)'()(cons (* (car l) s) (list_mul s (cdr l)))))
+
+;使用map对
+(define (list_mul map l)
+(if(null? l)'()(cons (map (car l)) (list_mul map (cdr l)))))
