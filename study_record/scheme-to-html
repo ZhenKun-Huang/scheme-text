@@ -1,0 +1,13 @@
+(define o (open-output-file "lisp.html"))
+(display "<!DOCTYPE html>
+<html>
+    <head>
+        <title>hello!</title>
+    </head>
+    <body>
+        <h1>lisp_to_html</h1>
+    </body>
+</html>
+" o)
+(newline o)
+(close-output-port o)
